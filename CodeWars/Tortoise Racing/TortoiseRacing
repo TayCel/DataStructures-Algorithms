@@ -1,0 +1,26 @@
+import math
+
+
+def race(v1, v2, g):
+    if v1 >= v2:
+        return None
+    timeneeded = g/(v2 - v1)
+    hours = math.floor(timeneeded)
+    minutes = math.floor((timeneeded - hours) * 60)
+    
+    seconds = math.floor((((timeneeded - hours) * 60) - minutes) * 60)
+
+    if ((((timeneeded - hours) * 60) - minutes) * 60) > 59:
+        minutes += 1
+        seconds = 0
+    if ((((timeneeded - hours) * 60) - minutes) * 60) % 1 > 2:
+        seconds += 1
+    solution = [hours, minutes, seconds]
+
+    return solution
+
+
+
+Complexity:
+  Time: O(1)
+  Space: O(1)
